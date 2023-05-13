@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng16-rikkyp';
+  title = 'ng16-rikkyp- this is my first git repo';
 }
