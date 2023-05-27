@@ -29,5 +29,7 @@ onSubmit(){
 console.log(this.loginForm.get('firstName').value)
 }
 
+get firstName(){ return this.loginForm.get('firstName')}
+
 
 }

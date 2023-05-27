@@ -26,9 +26,10 @@
       <mat-label>First Name</mat-label>
       <input matInput placeholder="firstName" formControlName="firstName" type="text">
       <mat-hint>This is hint</mat-hint>
-
     </mat-form-field>
-    </p><p>
+    <span *ngIf="firstName.invalid">firstName Is required</span>
+    </p>
+    <p>
     <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
         <input matInput placeholder="lastname" type="text" formControlName="lastName">
