@@ -6,20 +6,30 @@ import { AppComponent } from './app.component';
 import { LoopModule } from './loop/loop.module';
 import { IteratorComponent } from './loop/iterator/iterator.component';
 import { InlineExampleComponent } from './inline-example/inline-example.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/material.module';
+import { MaterialExampleComponent } from './material-example/material-example.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     InlineExampleComponent,
+    MaterialExampleComponent,  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     LoopModule,
-    FormsModule
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule
+   
   ],
-  providers: [],
+  providers: [BrowserAnimationsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
