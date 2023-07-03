@@ -1,113 +1,85 @@
 <div>
-  <div>
-    <mat-toolbar>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar>
 
-  </div>
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="abc">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Enter a date range</mat-label>
-      <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate placeholder="Start date">
-        <input matEndDate placeholder="End date">
-      </mat-date-range-input>
-      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
-  </form>
+
+  <ul>
+    <li *ngFor="let detail of detailPage" (click)="selectLanguage(detail)"><button mat-raised-button color="primary"
+        style="margin:10px">{{detail.language}} </button>
+    </li>
+  </ul>
 </div>
 <hr>
-<div><p>Mat Slider</p>
-<mat-slide-toggle>toggle me!</mat-slide-toggle>
+<div>
+  <p>Mat Slider</p>
+  <mat-slide-toggle>toggle me!</mat-slide-toggle>
 </div>
 <hr>
 <mat-progress-bar mode="buffer"></mat-progress-bar>
 
 
 <mat-card class="example-card">
-    <mat-card-content>
-      <h2 class="example-h2">Progress bar configuration</h2>
-  
-      <section class="example-section">
-        <label class="example-margin">Color:</label>
-        <mat-radio-group [(ngModel)]="colour">
-          <mat-radio-button class="example-margin" value="primary">
-            Primary
-          </mat-radio-button>
-          <mat-radio-button class="example-margin" value="accent">
-            Accent
-          </mat-radio-button>
-          <mat-radio-button class="example-margin" value="warn">
-            Warn
-          </mat-radio-button>
-        </mat-radio-group>
-      </section>
-  
-      <section class="example-section">
-        <label class="example-margin">Mode:</label>
-        <mat-radio-group [(ngModel)]="mode">
-          <mat-radio-button class="example-margin" value="determinate">
-            Determinate
-          </mat-radio-button>
-          <mat-radio-button class="example-margin" value="indeterminate">
-            Indeterminate
-          </mat-radio-button>
-          <mat-radio-button class="example-margin" value="buffer">
-            Buffer
-          </mat-radio-button>
-          <mat-radio-button class="example-margin" value="query">
-            Query
-          </mat-radio-button>
-        </mat-radio-group>
-      </section>
-  
-      <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
-        <label class="example-margin">Progress:</label>
-        <mat-slider class="example-margin">
-          <input type="range" [(ngModel)]="value" matSliderThumb>
-        </mat-slider>
-      </section>
-      <section class="example-section" *ngIf="mode === 'buffer'">
-        <label class="example-margin">Buffer:</label>
-        <mat-slider class="example-margin">
-          <input type="range" [(ngModel)]="bufferValue" matSliderThumb>
-        </mat-slider>
-      </section>
-    </mat-card-content>
-  </mat-card>
-  
-  <mat-card class="example-card">
-    <mat-card-content>
-      <h2 class="example-h2">Result</h2>
-  
-      <section class="example-section">
-        <mat-progress-bar
-            class="example-margin"
-            [color]="color"
-            [mode]="mode"
-            [value]="value"
-            [bufferValue]="bufferValue">
-        </mat-progress-bar>
-      </section>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-content>
+    <h2 class="example-h2">Progress bar configuration</h2>
+
+    <section class="example-section">
+      <label class="example-margin">Color:</label>
+      <mat-radio-group [(ngModel)]="colour">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section">
+      <label class="example-margin">Mode:</label>
+      <mat-radio-group [(ngModel)]="mode">
+        <mat-radio-button class="example-margin" value="determinate">
+          Determinate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="indeterminate">
+          Indeterminate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="buffer">
+          Buffer
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="query">
+          Query
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="value" matSliderThumb>
+      </mat-slider>
+    </section>
+    <section class="example-section" *ngIf="mode === 'buffer'">
+      <label class="example-margin">Buffer:</label>
+      <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="bufferValue" matSliderThumb>
+      </mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <section class="example-section">
+      <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value"
+        [bufferValue]="bufferValue">
+      </mat-progress-bar>
+    </section>
+  </mat-card-content>
+</mat-card>
+<hr>
 
 <!-- <div> <span>listing data with ngFor</span>
     <ul>
@@ -142,52 +114,47 @@
     <p>{{twowayData}}</p>
 </div> -->
 <div>
-<span>Button Material</span>
-<button mat-button >First Button</button>
-<button style="width: 50px;" mat-button mat-raised-button color="primary">First Button</button>
-<button mat-button mat-raised-button color="warn">Second Button</button>
-<button mat-button mat-raised-button color="primary">Third Button</button>
+  <span>Button Material</span>
+  <button mat-button>First Button</button>
+  <button style="width: 50px;" mat-button mat-raised-button color="primary">First Button</button>
+  <button mat-button mat-raised-button color="warn">Second Button</button>
+  <button mat-button mat-raised-button color="primary">Third Button</button>
 </div>
 <hr>
 <p>Card</p>
 
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>Actions Buttons</mat-card-title>
-      <mat-card-subtitle>Start</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Actions Buttons</mat-card-title>
-      <mat-card-subtitle>End</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-actions align="end">
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+<br>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>End</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
 
-  <p>GRID
+<p>GRID
 
-  </p>
+</p>
 
-  <mat-grid-list cols="4" rowHeight="1:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list>
-
-
-
-
-  
-  
-
-
+<mat-grid-list cols="5" rowHeight="1:1">
+  <mat-grid-tile style="background-color:blue">1
+  <div>this is inside one</div>
+  </mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+  <mat-grid-tile>5</mat-grid-tile>
+</mat-grid-list>

@@ -19,15 +19,20 @@
         aria-label="Button that displays a tooltip when focused or hovered over">
   Action
 </button> -->
+
 <div class="main-div">
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<h1 mat-dialog-title> User Form</h1>
+<form [formGroup]="loginForm">
  <p>
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
       <input matInput placeholder="firstName" formControlName="firstName" type="text">
-      <mat-hint>This is hint</mat-hint>
+      <mat-hint>This is mandatory field</mat-hint>
     </mat-form-field>
-    <span *ngIf="firstName.invalid">firstName Is required</span>
+    <!-- <span *ngIf="firstName.invalid" style="color:red">Provide some value</span> -->
+    <span *ngIf="firstName.errors?.required" style="color:red">FirstName Is required</span>
+    <span *ngIf="firstName.errors?.minlength" style="color:red">Min Length should be 3 chars</span>
+    <span *ngIf="firstName.errors?.maxlength" style="color:red">Max Length should be 10 chars</span>
     </p>
     <p>
     <mat-form-field appearance="outline">
@@ -41,6 +46,8 @@
         <input matInput placeholder="address" type="text" formControlName="address">
         <mat-hint>This is hint</mat-hint>
       </mat-form-field>
+      <span *ngIf="address.errors?.minlength" style="color:red">Min Length should be 3 chars</span>
+      <span *ngIf="address.errors?.maxlength" style="color:red">Max Length should be 10 chars</span>
     </p>
     <p>
       <mat-form-field appearance="outline">
@@ -51,21 +58,16 @@
   </p>
   <mat-form-field appearance="outline">
     <mat-label>Gender</mat-label>
-    <mat-select multiple formControlName="gender">
+    <mat-select formControlName="gender">
       <mat-option value="Male">Male</mat-option>
       <mat-option value="Female">Female</mat-option>
       <mat-option value="Others">Others</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <section class="example-section">
-    <mat-checkbox class="example-margin">Checked</mat-checkbox>
-    <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
-  </section>
-
     <div class="example-button-row">
-      <button mat-button color="primary" mat-raised-button>Submit</button>
-      <button mat-button color="accent">Cancel</button>
+      <button mat-raised-button color="primary" mat-raised-button (click)="onSubmit()">Submit</button>
+      <button  mat-raised-button mat-dialog-close color="warn" style="margin: 2px;">Cancel</button>
     </div>
 </form>
 </div>
