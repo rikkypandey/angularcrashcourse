@@ -1,0 +1,108 @@
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>This is Inline component</mat-card-title>
+      <mat-card-subtitle>Inline</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This card indeterminates progress bar.</p>
+    <p >{{longText}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+     
+      <button mat-raised-button color="primary" routerLink="/inlineexample">Inline Component </button>
+      <button mat-raised-button color="primary" routerLink="/materialexample">Material Component </button>
+
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>This is lazy Module</mat-card-title>
+      <mat-card-subtitle>Lazy Loading Example</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{longText}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+   
+      <button mat-raised-button color="primary" routerLink="/lazymodule1">Lazy Module1 </button>
+     
+    </mat-card-actions>
+  </mat-card> -->
+
+<div style="text-align: center;">
+  <h2>{{pageTitle}}</h2>
+  <h4>{{subTitle}}</h4>
+
+</div>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> FirstName </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> LastName </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="editData(element)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="deleteData(element.id)"><mat-icon>delete</mat-icon></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+
+
+<!-- pipe examples  -->
+<!-- <p>{{course}}</p>
+  <p>{{course | uppercase}}</p>
+  <p>{{course | lowercase}}</p>
+  <p>{{course | titlecase}}</p>
+  <p>{{course | titlecase}}</p>
+
+  <p>{{0.75}}</p> -->
+
+<!-- <p>{{0.75 | percent}}</p> -->
+<!-- by default dollor  -->
+<!-- <p>{{0.75 | currency}}</p>
+
+  <p>{{0.75 | currency: 'EUR'}}</p>
+  <p>{{0.75 | currency: 'EUR': 'code'}}</p> -->
