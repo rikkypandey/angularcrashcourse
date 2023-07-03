@@ -1,0 +1,73 @@
+<!-- <p>material-example works!</p>
+
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+<p>Progress Bar Example</p>
+
+<mat-progress-bar mode="buffer"></mat-progress-bar>
+
+<p>
+    Mat Spinner 
+</p>
+
+<mat-spinner></mat-spinner>
+
+<p>Tool Tip</p>
+
+<button mat-raised-button
+        matTooltip="This is the button It will perform an action when we click on this."
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button> -->
+
+<div class="main-div">
+<h1 mat-dialog-title> User Form</h1>
+<form [formGroup]="loginForm">
+ <p>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="firstName" formControlName="firstName" type="text">
+      <mat-hint>This is mandatory field</mat-hint>
+    </mat-form-field>
+    <!-- <span *ngIf="firstName.invalid" style="color:red">Provide some value</span> -->
+    <span *ngIf="firstName.errors?.required" style="color:red">FirstName Is required</span>
+    <span *ngIf="firstName.errors?.minlength" style="color:red">Min Length should be 3 chars</span>
+    <span *ngIf="firstName.errors?.maxlength" style="color:red">Max Length should be 10 chars</span>
+    </p>
+    <p>
+    <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="lastname" type="text" formControlName="lastName">
+        <mat-hint>This is hint</mat-hint>
+      </mat-form-field>
+    </p><p>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="address" type="text" formControlName="address">
+        <mat-hint>This is hint</mat-hint>
+      </mat-form-field>
+      <span *ngIf="address.errors?.minlength" style="color:red">Min Length should be 3 chars</span>
+      <span *ngIf="address.errors?.maxlength" style="color:red">Max Length should be 10 chars</span>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="age" type="number" min="1" max="99" maxlength="2" formControlName="age" >
+        <mat-hint>Age</mat-hint>
+      </mat-form-field>
+  </p>
+  <mat-form-field appearance="outline">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+      <mat-option value="Others">Others</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" mat-raised-button (click)="onSubmit()">Submit</button>
+      <button  mat-raised-button mat-dialog-close color="warn" style="margin: 2px;">Cancel</button>
+    </div>
+</form>
+</div>

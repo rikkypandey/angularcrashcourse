@@ -1,35 +1,160 @@
-<p>inline-example works-!</p>
+<div>
 
-<div> <span>listing data with ngFor</span>
-<ul>
-<li *ngFor="let a of languageArr">{{a}}</li>
-</ul>
+
+  <ul>
+    <li *ngFor="let detail of detailPage" (click)="selectLanguage(detail)"><button mat-raised-button color="primary"
+        style="margin:10px">{{detail.language}} </button>
+    </li>
+  </ul>
 </div>
-<div *ngIf="isVisible; then firstBlock else elseBlock">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum 
+<hr>
+<div>
+  <p>Mat Slider</p>
+  <mat-slide-toggle>toggle me!</mat-slide-toggle>
 </div>
-<ng-template #elseBlock>
+<hr>
+<mat-progress-bar mode="buffer"></mat-progress-bar>
+
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <h2 class="example-h2">Progress bar configuration</h2>
+
+    <section class="example-section">
+      <label class="example-margin">Color:</label>
+      <mat-radio-group [(ngModel)]="colour">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section">
+      <label class="example-margin">Mode:</label>
+      <mat-radio-group [(ngModel)]="mode">
+        <mat-radio-button class="example-margin" value="determinate">
+          Determinate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="indeterminate">
+          Indeterminate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="buffer">
+          Buffer
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="query">
+          Query
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="value" matSliderThumb>
+      </mat-slider>
+    </section>
+    <section class="example-section" *ngIf="mode === 'buffer'">
+      <label class="example-margin">Buffer:</label>
+      <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="bufferValue" matSliderThumb>
+      </mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <section class="example-section">
+      <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value"
+        [bufferValue]="bufferValue">
+      </mat-progress-bar>
+    </section>
+  </mat-card-content>
+</mat-card>
+<hr>
+
+<!-- <div> <span>listing data with ngFor</span>
+    <ul>
+        <li *ngFor="let a of languageArr">{{a}}</li>
+    </ul>
+</div> -->
+<!-- <div *ngIf="isVisible; then firstBlock else elseBlock">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</div> -->
+<!-- <ng-template #elseBlock>
     this is an optionl block to be shown.
 </ng-template>
 <ng-template #firstBlock>
     firstBlock ock to be shown.
-</ng-template>
-<div><span>Example of Switch Case</span>
-<div [ngSwitch]="color">
-<div *ngSwitchCase="'red'" style="color:red">The selection is Red</div>
-<div *ngSwitchCase="'green'" style="color:green">The selection is Green</div>
-<div *ngSwitchCase="'blue'" style="color:blue">The selection is Blue</div>
-<div *ngSwitchDefault="">No selection there, select again</div>
-</div>
-</div>
-<p>Two Way Binding...</p>
+</ng-template> -->
+<!-- <div><span>Example of Switch Case</span>
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'" style="color:red">The selection is Red</div>
+        <div *ngSwitchCase="'green'" style="color:green">The selection is Green</div>
+        <div *ngSwitchCase="'blue'" style="color:blue">The selection is Blue</div>
+        <div *ngSwitchDefault="">No selection there, select again</div>
+    </div>
+</div> -->
+<!-- <p>Two Way Binding...</p>
 <div>
-    <input [(ngModel)]="twowayData" type="text">
-
-
-    <span>{{twowayData}}</span>
+    <input #asdf [(ngModel)]="twowayData" type="text">
+    <div>This is the div content</div>
+    <button (click)="checkLog(asdf.value)">Click Me</button>
+    <p>{{twowayData}}</p>
+</div> -->
+<div>
+  <span>Button Material</span>
+  <button mat-button>First Button</button>
+  <button style="width: 50px;" mat-button mat-raised-button color="primary">First Button</button>
+  <button mat-button mat-raised-button color="warn">Second Button</button>
+  <button mat-button mat-raised-button color="primary">Third Button</button>
 </div>
+<hr>
+<p>Card</p>
 
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+<br>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Actions Buttons</mat-card-title>
+    <mat-card-subtitle>End</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
 
+<p>GRID
 
+</p>
 
+<mat-grid-list cols="5" rowHeight="1:1">
+  <mat-grid-tile style="background-color:blue">1
+  <div>this is inside one</div>
+  </mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+  <mat-grid-tile>5</mat-grid-tile>
+</mat-grid-list>
